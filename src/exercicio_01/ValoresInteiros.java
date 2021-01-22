@@ -1,6 +1,8 @@
 package exercicio_01;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -61,15 +63,30 @@ public class ValoresInteiros {
     }
 
     public boolean criarArquivo(int[] valor){
-        File arquivo = new File("arquivo_inteiros");
-        boolean statusArquivo;
+        File arquivo = new File("arquivo_inteiros.txt");
         try {
-            statusArquivo = arquivo.createNewFile();
-            arquivoCriado  = statusArquivo;
+            arquivoCriado  = arquivo.createNewFile();
+            preencherArquivo(arquivo, valor);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return arquivoCriado;
+    }
+
+    private void preencherArquivo(File arquivo, int[] valor) {
+        try {
+            FileWriter fw = new FileWriter(arquivo);
+            BufferedWriter escritor = new BufferedWriter(fw);
+            for(int numero : valor){
+                String conteudo = Integer.toString(numero);
+                escritor.write(conteudo);
+                escritor.newLine();
+            }
+            escritor.flush();
+            escritor.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
