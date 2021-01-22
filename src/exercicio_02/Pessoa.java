@@ -8,6 +8,9 @@ public class Pessoa {
     private String cpf;
     private String dataNascimento;
 
+    public Pessoa() {
+    }
+
     public String getNome() {
         return nome;
     }
