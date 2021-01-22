@@ -79,8 +79,7 @@ public class ValoresInteiros {
             BufferedWriter escritor = new BufferedWriter(fw);
             for(int numero : valor){
                 String conteudo = Integer.toString(numero);
-                escritor.write(conteudo);
-                escritor.newLine();
+                escritor.write(conteudo + " ");
             }
             escritor.flush();
             escritor.close();
