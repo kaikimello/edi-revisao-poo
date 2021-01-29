@@ -15,7 +15,7 @@ public class Coinf extends Gemed{
     }
 
     @Override
-    public int contarAlunos() {
+    public int contarAlunos(DiretoriaGeral dg) {
         return getQuantidadeAlunos();
     }
 }

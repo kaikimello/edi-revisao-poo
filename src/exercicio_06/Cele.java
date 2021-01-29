@@ -17,7 +17,7 @@ public class Cele extends Gensup{
     }
 
     @Override
-    public int contarAlunos() {
+    public int contarAlunos(DiretoriaGeral dg) {
         return getQuantidadeAlunos();
     }
 }

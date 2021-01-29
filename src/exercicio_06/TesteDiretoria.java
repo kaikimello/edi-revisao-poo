@@ -6,6 +6,6 @@ package exercicio_06;
 public class TesteDiretoria {
     public static void main(String[] args) {
         DiretoriaGeral diretoriaGeral = new DiretoriaGeral();
-        System.out.println("A quantidade de alunos do Campus é: "+ diretoriaGeral.contarAlunos());
+        System.out.println("A quantidade de alunos do Campus é: "+ diretoriaGeral.contarAlunos(diretoriaGeral));
     }
 }

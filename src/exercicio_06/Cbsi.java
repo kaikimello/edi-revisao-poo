@@ -17,7 +17,7 @@ public class Cbsi extends Gensup{
     }
 
     @Override
-    public int contarAlunos() {
+    public int contarAlunos(DiretoriaGeral dg) {
         return this.getQuantidadeAlunos();
     }
 }

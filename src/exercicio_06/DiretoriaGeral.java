@@ -27,10 +27,17 @@ public class DiretoriaGeral {
         this.quantidadeAlunos = quantidadeAlunos;
     }
 
-    public int contarAlunos(){
-        Gensup gensup = new Gensup();
-        Gemed gemed = new Gemed();
-        return gensup.contarAlunos() + gemed.contarAlunos();
+    public int contarAlunos(DiretoriaGeral dg){
+        if (dg instanceof Gensup){
+            quantidadeAlunos = dg.contarAlunos(dg);
+            dg = new Gemed();
+        }else if (dg instanceof Gemed){
+            quantidadeAlunos += dg.contarAlunos(dg);
+            return quantidadeAlunos;
+        }else {
+            dg = new Gensup();
+        }
+        return contarAlunos(dg) /*+ gemed.contarAlunos()*/;
     }
 
 }

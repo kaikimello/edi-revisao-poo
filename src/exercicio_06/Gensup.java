@@ -5,14 +5,25 @@ package exercicio_06;
  */
 public class Gensup extends DiretoriaGeral{
 
+    private int qtdeCbsi, qtdeCele, qtdeCfis;
+
     public Gensup() {
     }
 
     @Override
-    public int contarAlunos() {
-        Cbsi cbsi = new Cbsi();
-        Cele cele = new Cele();
-        Cfis cfis = new Cfis();
-        return cbsi.contarAlunos() + cele.contarAlunos() + cfis.contarAlunos() ;
+    public int contarAlunos(DiretoriaGeral dg) {
+        if (dg instanceof Cbsi){
+            qtdeCbsi = dg.contarAlunos(dg);
+            dg = new Cele();
+        }else if(dg instanceof Cele){
+            qtdeCele = dg.contarAlunos(dg);
+            dg = new Cfis();
+        }else if (dg instanceof  Cfis){
+            qtdeCfis = dg.contarAlunos(dg);
+            return (qtdeCbsi + qtdeCele + qtdeCfis);
+        }else{
+            dg = new Cbsi();
+        }
+        return contarAlunos(dg) ;
     }
 }
